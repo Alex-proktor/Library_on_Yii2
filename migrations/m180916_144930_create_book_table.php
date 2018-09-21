@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `book`.
  */
-class m180916_144931_create_book_table extends Migration
+class m180916_144930_create_book_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -33,13 +33,8 @@ class m180916_144931_create_book_table extends Migration
         }
         $this->createTable('book', [
             'id' => $this->primaryKey(),
-            'author_id' => $this->integer()->notNull(), //Автор
-            'name' => $this->text()->notNull(),
-//            'title' => $this->string()->notNull()->unique(), // Название статьи
-//            'abridgment' => $this->text()->notNull(), // Сокращенный текст
-//            'activity' => $this->integer()->notNull()->defaultValue(0), // Активность статьи
-//            'category_id' => $this->integer()->notNull(), //Номер категории
-//            'date' => $this->integer()->notNull(),
+            'author_id' => $this->integer()->notNull(), // ID Автора
+            'name' => $this->text()->notNull(), // Название книги
         ], $tableOptions);
     }
 }
