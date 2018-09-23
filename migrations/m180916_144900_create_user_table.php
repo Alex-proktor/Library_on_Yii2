@@ -39,8 +39,13 @@ class m180916_144900_create_user_table extends Migration
             'password_reset_token' => $this->string()->unique(),
             'email' => $this->string()->notNull()->unique(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'created_at' => $this->integer()->notNull()->defaultValue(1),
+            'updated_at' => $this->integer()->notNull()->defaultValue(1),
         ], $tableOptions);
+
+        // добавления админа с ролью админа
+        $admin = Yii::$app->authManager->createRole('admin');
+        Yii::$app->authManager->add($admin);
+        Yii::$app->authManager->assign($admin, 1);
     }
 }
